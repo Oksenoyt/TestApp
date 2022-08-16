@@ -34,23 +34,9 @@ class CharactersViewController: UITableViewController {
         
         content.text = character.name
         content.secondaryText = character.house
-//        content.image = UIImage(named: character.image)
         content.imageProperties.cornerRadius = tableView.rowHeight / 2
         cell.contentConfiguration = content
         
         return cell
-    }
-    
-    
-    // MARK: - UITableViewDelegate
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let character = characterList[indexPath.row]
-        performSegue(withIdentifier: "showDetails", sender: character)
-    }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let detailsVC = segue.destination as? DetailsViewController else { return }
-        detailsVC.character = sender as? Character
     }
 }
